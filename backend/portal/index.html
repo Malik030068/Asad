@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rasta AI - User Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        body { background: #090D16; color: #F8FAFC; font-family: system-ui, -apple-system, sans-serif; }
+        .card-custom { background: #111827; border: 1px solid #1E293B; border-radius: 12px; }
+        .text-cyan { color: #00E5FF; }
+        .btn-cyan { background: #00E5FF; color: #082F49; font-weight: 600; border: none; }
+        .btn-cyan:hover { background: #38BDF8; color: #082F49; }
+        .chat-box { height: 400px; overflow-y: auto; background: #0F172A; border-radius: 10px; padding: 15px; }
+        .msg-asst { background: #1E293B; border-radius: 12px; padding: 10px 14px; margin-bottom: 10px; max-width: 80%; }
+        .msg-user { background: #0284C7; border-radius: 12px; padding: 10px 14px; margin-bottom: 10px; max-width: 80%; margin-left: auto; color: white; }
+    </style>
+</head>
+<body class="py-4">
+<div class="container" style="max-width: 780px;">
+    <!-- Brand Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="d-flex align-items-center">
+            <i class="bi bi-robot text-cyan fs-2 me-2"></i>
+            <div>
+                <h4 class="fw-bold mb-0 text-cyan">RASTA AI</h4>
+                <div class="small text-secondary">Multilingual Mobile AI Assistant</div>
+            </div>
+        </div>
+        <div id="userBadge" class="small text-secondary">
+            User: <strong class="text-light" id="userNameLabel">Shoaib</strong> • <span class="badge bg-success" id="userPlanBadge">Pro Plan</span>
+        </div>
+    </div>
+
+    <!-- Main Card -->
+    <div class="card-custom p-4 shadow-lg mb-4">
+        <!-- Chat Area -->
+        <h5 class="fw-bold text-light mb-3"><i class="bi bi-chat-dots text-cyan me-2"></i>Assistant Conversation</h5>
+        
+        <div class="chat-box mb-3" id="chatContainer">
+            <div class="msg-asst">
+                <strong>Rasta AI:</strong><br>
+                Assalam-o-Alaikum Shoaib! Main Rasta AI hoon. Aap ko kis cheez mein madad chahiye?
+            </div>
+        </div>
+
+        <!-- Prompt Input Bar -->
+        <div class="input-group">
+            <input type="text" id="promptInput" class="form-control bg-dark text-light border-secondary" placeholder="Type message in Roman Urdu or English..." onkeypress="if(event.key==='Enter') sendPrompt()">
+            <button class="btn btn-cyan px-4" onclick="sendPrompt()"><i class="bi bi-send-fill me-1"></i> Send</button>
+        </div>
+    </div>
+
+    <!-- Subscription & Entitlements -->
+    <div class="card-custom p-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold mb-0 text-cyan"><i class="bi bi-award me-2"></i>Subscription & Entitlements</h5>
+            <span class="badge bg-info text-dark">Active Account</span>
+        </div>
+        <div class="row g-3">
+            <div class="col-6 col-md-3">
+                <div class="p-3 bg-dark rounded border border-secondary text-center">
+                    <div class="small text-secondary">Daily Quota</div>
+                    <div class="fw-bold text-light fs-5">500 Queries</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="p-3 bg-dark rounded border border-secondary text-center">
+                    <div class="small text-secondary">Voice Limit</div>
+                    <div class="fw-bold text-light fs-5">240 Mins/Day</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="p-3 bg-dark rounded border border-secondary text-center">
+                    <div class="small text-secondary">Automation</div>
+                    <div class="fw-bold text-success fs-5">Full Access</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="p-3 bg-dark rounded border border-secondary text-center">
+                    <div class="small text-secondary">Languages</div>
+                    <div class="fw-bold text-cyan fs-5">Multilingual</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let userToken = '';
+
+    async function sendPrompt() {
+        const input = document.getElementById('promptInput');
+        const query = input.value.trim();
+        if (!query) return;
+
+        const chat = document.getElementById('chatContainer');
+        chat.innerHTML += `<div class="msg-user"><strong>Shoaib:</strong><br>${query}</div>`;
+        input.value = '';
+        chat.scrollTop = chat.scrollHeight;
+
+        // Auto greeting or response
+        setTimeout(() => {
+            let reply = "Ji Shoaib, Rasta AI hazir hai. Main aap ke liye tayyar hoon.";
+            const q = query.toLowerCase();
+            if (q.includes("torch") || q.includes("flashlight")) {
+                reply = "Ji Shoaib, flashlight control action Android app mein tayyar hai.";
+            } else if (q.includes("battery")) {
+                reply = "Ji Shoaib, battery telemetry Android service se check ho rahi hai.";
+            }
+            chat.innerHTML += `<div class="msg-asst"><strong>Rasta AI:</strong><br>${reply}</div>`;
+            chat.scrollTop = chat.scrollHeight;
+        }, 500);
+    }
+</script>
+</body>
+</html>

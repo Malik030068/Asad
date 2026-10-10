@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Rasta AI</string>
+    <string name="assistant_name">Rasta AI</string>
+    <string name="default_user_name">Shoaib</string>
+    <string name="greeting_roman_urdu">Assalam-o-Alaikum Shoaib! Main Rasta AI hoon. Aap ko kis cheez mein madad chahiye?</string>
+    <string name="greeting_roman_urdu_short">Ji Shoaib, Rasta AI hazir hai. Bataiye, main aap ke liye kya karun?</string>
+    <string name="greeting_urdu">السلام علیکم شعیب! میں راستہ اے آئی ہوں۔ آپ کو کس چیز میں مدد چاہیے؟</string>
+    <string name="greeting_english">Hello Shoaib! I am Rasta AI. How can I help you today?</string>
+</resources>

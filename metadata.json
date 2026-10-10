@@ -1,0 +1,6 @@
+{
+  "name": "Rasta AI",
+  "description": "Rasta AI - Complete Multilingual AI Mobile Assistant with Voice Interaction, Mobile Device Automation, User Portal, and Admin Control.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

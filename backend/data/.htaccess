@@ -1,0 +1,2 @@
+# Deny direct browser access to persistent JSON records
+Require all denied
